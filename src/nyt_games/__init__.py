@@ -1,6 +1,7 @@
 """Asynchronous Python client for NYT Games."""
 
 from nyt_games.exceptions import (
+    NYTGamesAuthenticationError,
     NYTGamesConnectionError,
     NYTGamesError,
     NYTGamesParseError,
@@ -12,6 +13,7 @@ __all__ = [
     "NYTGamesClient",
     "NYTGamesError",
     "NYTGamesConnectionError",
+    "NYTGamesAuthenticationError",
     "NYTGamesParseError",
     "LatestDataStats",
     "Wordle",

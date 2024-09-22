@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 from aiohttp import ClientError, ClientResponseError, ClientSession
 from yarl import URL
 
-from .exceptions import NYTGamesConnectionError
+from .exceptions import NYTGamesAuthenticationError, NYTGamesConnectionError
 from .models import LatestData, LatestDataStats
 
 if TYPE_CHECKING:
@@ -64,6 +64,10 @@ class NYTGamesClient:
         ) as exception:
             msg = "Error occurred while communicating with NYT Games"
             raise NYTGamesConnectionError(msg) from exception
+
+        if response.status == 403:
+            msg = "Unauthenticated"
+            raise NYTGamesAuthenticationError(msg)
 
         if response.status != 200:
             content_type = response.headers.get("Content-Type", "")

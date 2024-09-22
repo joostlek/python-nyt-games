@@ -12,6 +12,7 @@ from aioresponses import CallbackResult, aioresponses
 import pytest
 
 from nyt_games import NYTGamesClient, NYTGamesConnectionError, NYTGamesError
+from nyt_games.exceptions import NYTGamesAuthenticationError
 from tests import load_fixture
 from tests.const import HEADERS, MOCK_URL
 
@@ -66,6 +67,20 @@ async def test_unexpected_server_response(
         body="Yes",
     )
     with pytest.raises(NYTGamesError):
+        await client.get_latest_stats()
+
+
+async def test_unauthorized(
+    responses: aioresponses,
+    client: NYTGamesClient,
+) -> None:
+    """Test handling unauthorized response."""
+    responses.get(
+        f"{MOCK_URL}/svc/games/state/wordleV2/latests",
+        status=403,
+        body='{"error": "forbidden"}',
+    )
+    with pytest.raises(NYTGamesAuthenticationError):
         await client.get_latest_stats()
 
 
