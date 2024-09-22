@@ -22,6 +22,7 @@ class LatestDataPlayer(DataClassORJSONMixin):
     """LatestData model."""
 
     stats: LatestDataStats
+    user_id: int
 
 
 @dataclass

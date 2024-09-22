@@ -12,7 +12,7 @@ from aiohttp import ClientError, ClientResponseError, ClientSession
 from yarl import URL
 
 from .exceptions import NYTGamesConnectionError
-from .models import LatestData, LatestDataStats
+from .models import LatestData, LatestDataPlayer
 
 if TYPE_CHECKING:
     from typing_extensions import Self
@@ -76,11 +76,11 @@ class NYTGamesClient:
 
         return await response.text()
 
-    async def get_latest_stats(self) -> LatestDataStats:
+    async def get_latest_stats(self) -> LatestDataPlayer:
         """Get latest stats."""
         response = await self._request("svc/games/state/wordleV2/latests")
         data = LatestData.from_json(response)
-        return data.player.stats
+        return data.player
 
     async def close(self) -> None:
         """Close open client session."""
