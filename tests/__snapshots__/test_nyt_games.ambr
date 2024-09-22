@@ -1,21 +1,24 @@
 # serializer version: 1
 # name: test_get_latest
   dict({
-    'wordle': dict({
-      'current_streak': 1,
-      'games_played': 33,
-      'games_won': 26,
-      'guesses': dict({
-        '1': 0,
-        '2': 1,
-        '3': 4,
-        '4': 7,
-        '5': 10,
-        '6': 4,
-        'fail': 7,
+    'stats': dict({
+      'wordle': dict({
+        'current_streak': 1,
+        'games_played': 33,
+        'games_won': 26,
+        'guesses': dict({
+          '1': 0,
+          '2': 1,
+          '3': 4,
+          '4': 7,
+          '5': 10,
+          '6': 4,
+          'fail': 7,
+        }),
+        'last_won': datetime.date(2024, 9, 20),
+        'max_streak': 5,
       }),
-      'last_won': datetime.date(2024, 9, 20),
-      'max_streak': 5,
     }),
+    'user_id': 218886794,
   })
 # ---
