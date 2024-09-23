@@ -1,38 +1,51 @@
 # serializer version: 1
+# name: test_get_connections
+  dict({
+    'current_streak': 0,
+    'last_completed': datetime.date(2024, 9, 23),
+    'max_streak': 2,
+    'mistakes': dict({
+      '0': 2,
+      '1': 0,
+      '2': 1,
+      '3': 0,
+      '4': 6,
+    }),
+    'puzzles_completed': 9,
+    'puzzles_won': 3,
+  })
+# ---
 # name: test_get_latest
   dict({
-    'stats': dict({
-      'spelling_bee': dict({
-        'puzzles_started': 87,
-        'ranks': dict({
-          'beginner': 23,
-          'good': 21,
-          'good_start': 14,
-          'moving_up': 16,
-          'nice': 4,
-          'solid': 9,
-        }),
-        'total_pangrams': 15,
-        'total_words': 362,
+    'spelling_bee': dict({
+      'puzzles_started': 87,
+      'ranks': dict({
+        'beginner': 23,
+        'good': 21,
+        'good_start': 14,
+        'moving_up': 16,
+        'nice': 4,
+        'solid': 9,
       }),
-      'wordle': dict({
-        'current_streak': 1,
-        'games_played': 33,
-        'games_won': 26,
-        'guesses': dict({
-          '1': 0,
-          '2': 1,
-          '3': 4,
-          '4': 7,
-          '5': 10,
-          '6': 4,
-          'fail': 7,
-        }),
-        'last_completed': datetime.date(2024, 9, 20),
-        'last_won': datetime.date(2024, 9, 20),
-        'max_streak': 5,
-      }),
+      'total_pangrams': 15,
+      'total_words': 362,
     }),
-    'user_id': 218886794,
+    'wordle': dict({
+      'current_streak': 1,
+      'games_played': 33,
+      'games_won': 26,
+      'guesses': dict({
+        '1': 0,
+        '2': 1,
+        '3': 4,
+        '4': 7,
+        '5': 10,
+        '6': 4,
+        'fail': 7,
+      }),
+      'last_completed': datetime.date(2024, 9, 20),
+      'last_won': datetime.date(2024, 9, 20),
+      'max_streak': 5,
+    }),
   })
 # ---

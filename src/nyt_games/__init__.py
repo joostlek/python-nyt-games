@@ -6,7 +6,15 @@ from nyt_games.exceptions import (
     NYTGamesError,
     NYTGamesParseError,
 )
-from nyt_games.models import LatestDataPlayer, LatestDataStats, Wordle
+from nyt_games.models import (
+    Connections,
+    ConnectionsStats,
+    LatestDataStats,
+    SpellingBee,
+    SpellingBeeRanks,
+    Wordle,
+    WordleStats,
+)
 from nyt_games.nyt_games import NYTGamesClient
 
 __all__ = [
@@ -15,7 +23,11 @@ __all__ = [
     "NYTGamesConnectionError",
     "NYTGamesAuthenticationError",
     "NYTGamesParseError",
-    "LatestDataPlayer",
     "LatestDataStats",
+    "Connections",
+    "SpellingBee",
+    "SpellingBeeRanks",
+    "WordleStats",
+    "ConnectionsStats",
     "Wordle",
 ]

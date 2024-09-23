@@ -12,7 +12,7 @@ from aiohttp import ClientError, ClientResponseError, ClientSession
 from yarl import URL
 
 from .exceptions import NYTGamesAuthenticationError, NYTGamesConnectionError
-from .models import LatestData, LatestDataPlayer
+from .models import Connections, ConnectionsStats, LatestDataStats, WordleStats
 
 if TYPE_CHECKING:
     from typing_extensions import Self
@@ -30,7 +30,7 @@ class NYTGamesClient:
     request_timeout: int = 10
     _close_session: bool = False
 
-    async def _request(self, uri: str) -> str:
+    async def _request(self, uri: str, params: dict[str, str] | None = None) -> str:
         """Handle a request to NYT Games."""
         url = URL.build(
             scheme="https",
@@ -50,10 +50,7 @@ class NYTGamesClient:
 
         try:
             async with asyncio.timeout(self.request_timeout):
-                response = await self.session.get(
-                    url,
-                    headers=headers,
-                )
+                response = await self.session.get(url, headers=headers, params=params)
         except asyncio.TimeoutError as exception:
             msg = "Timeout occurred while connecting to NYT Games"
             raise NYTGamesConnectionError(msg) from exception
@@ -80,11 +77,24 @@ class NYTGamesClient:
 
         return await response.text()
 
-    async def get_latest_stats(self) -> LatestDataPlayer:
-        """Get latest stats."""
+    async def _get_wordle_stats(self) -> WordleStats:
         response = await self._request("svc/games/state/wordleV2/latests")
-        data = LatestData.from_json(response)
-        return data.player
+        return WordleStats.from_json(response)
+
+    async def get_user_id(self) -> int:
+        """Get user identifier."""
+        return (await self._get_wordle_stats()).player.user_id
+
+    async def get_latest_stats(self) -> LatestDataStats:
+        """Get latest stats."""
+        return (await self._get_wordle_stats()).player.stats
+
+    async def get_connections(self) -> Connections:
+        """Get connections stats."""
+        response = await self._request(
+            "svc/games/state/connections/latests", {"puzzle_ids": "0"}
+        )
+        return ConnectionsStats.from_json(response).player.stats
 
     async def close(self) -> None:
         """Close open client session."""
