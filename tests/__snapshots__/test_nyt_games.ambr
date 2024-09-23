@@ -2,6 +2,19 @@
 # name: test_get_latest
   dict({
     'stats': dict({
+      'spelling_bee': dict({
+        'puzzles_started': 87,
+        'ranks': dict({
+          'beginner': 23,
+          'good': 21,
+          'good_start': 14,
+          'moving_up': 16,
+          'nice': 4,
+          'solid': 9,
+        }),
+        'total_pangrams': 15,
+        'total_words': 362,
+      }),
       'wordle': dict({
         'current_streak': 1,
         'games_played': 33,

@@ -30,6 +30,7 @@ class LatestDataStats(DataClassORJSONMixin):
     """LatestData model."""
 
     wordle: Wordle
+    spelling_bee: SpellingBee
 
 
 @dataclass
@@ -48,3 +49,25 @@ class Wordle(DataClassORJSONMixin):
     def __pre_deserialize__(cls, d: dict[str, dict[str, Any]]) -> dict[str, Any]:
         """Pre deserialization hook."""
         return d["calculatedStats"]
+
+
+@dataclass
+class SpellingBee(DataClassORJSONMixin):
+    """SpellingBee mode."""
+
+    puzzles_started: int
+    total_words: int
+    total_pangrams: int
+    ranks: SpellingBeeRanks
+
+
+@dataclass
+class SpellingBeeRanks(DataClassORJSONMixin):
+    """SpellingBeeRanks mode."""
+
+    beginner: int = field(metadata=field_options(alias="Beginner"))
+    good: int = field(metadata=field_options(alias="Good"))
+    good_start: int = field(metadata=field_options(alias="Good Start"))
+    moving_up: int = field(metadata=field_options(alias="Moving Up"))
+    nice: int = field(metadata=field_options(alias="Nice"))
+    solid: int = field(metadata=field_options(alias="Solid"))
