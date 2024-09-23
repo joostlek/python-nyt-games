@@ -15,6 +15,7 @@
           '6': 4,
           'fail': 7,
         }),
+        'last_completed': datetime.date(2024, 9, 20),
         'last_won': datetime.date(2024, 9, 20),
         'max_streak': 5,
       }),
