@@ -4,24 +4,26 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import date  # noqa: TCH003
-from typing import Any
+from typing import Any, Generic, TypeVar
 
 from mashumaro import field_options
 from mashumaro.mixins.orjson import DataClassORJSONMixin
 
-
-@dataclass
-class LatestData(DataClassORJSONMixin):
-    """LatestData model."""
-
-    player: LatestDataPlayer
+T = TypeVar("T")
 
 
 @dataclass
-class LatestDataPlayer(DataClassORJSONMixin):
+class Root(DataClassORJSONMixin, Generic[T]):
     """LatestData model."""
 
-    stats: LatestDataStats
+    player: Player[T]
+
+
+@dataclass
+class Player(DataClassORJSONMixin, Generic[T]):
+    """LatestData model."""
+
+    stats: T
     user_id: int
 
 
@@ -31,6 +33,23 @@ class LatestDataStats(DataClassORJSONMixin):
 
     wordle: Wordle
     spelling_bee: SpellingBee
+
+
+@dataclass
+class Connections(DataClassORJSONMixin):
+    """Connections model."""
+
+    puzzles_completed: int
+    puzzles_won: int
+    last_completed: date = field(metadata=field_options(alias="last_played_print_date"))
+    current_streak: int
+    max_streak: int
+    mistakes: dict[str, int]
+
+    @classmethod
+    def __pre_deserialize__(cls, d: dict[str, dict[str, Any]]) -> dict[str, Any]:
+        """Pre deserialization hook."""
+        return d["connections"]
 
 
 @dataclass
@@ -71,3 +90,11 @@ class SpellingBeeRanks(DataClassORJSONMixin):
     moving_up: int = field(metadata=field_options(alias="Moving Up"))
     nice: int = field(metadata=field_options(alias="Nice"))
     solid: int = field(metadata=field_options(alias="Solid"))
+
+
+class WordleStats(Root[LatestDataStats]):
+    """WordleStats model."""
+
+
+class ConnectionsStats(Root[Connections]):
+    """ConnectionsStats model."""

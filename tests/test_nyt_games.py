@@ -138,4 +138,38 @@ async def test_get_latest(
         f"{MOCK_URL}/svc/games/state/wordleV2/latests",
         METH_GET,
         headers=HEADERS,
+        params=None,
     )
+
+
+async def test_get_connections(
+    responses: aioresponses,
+    client: NYTGamesClient,
+    snapshot: SnapshotAssertion,
+) -> None:
+    """Test retrieving connections."""
+    responses.get(
+        f"{MOCK_URL}/svc/games/state/connections/latests?puzzle_ids=0",
+        status=200,
+        body=load_fixture("connections.json"),
+    )
+    assert await client.get_connections() == snapshot
+    responses.assert_called_once_with(
+        f"{MOCK_URL}/svc/games/state/connections/latests",
+        METH_GET,
+        headers=HEADERS,
+        params={"puzzle_ids": "0"},
+    )
+
+
+async def test_get_user_id(
+    responses: aioresponses,
+    client: NYTGamesClient,
+) -> None:
+    """Test retrieving user_id."""
+    responses.get(
+        f"{MOCK_URL}/svc/games/state/wordleV2/latests",
+        status=200,
+        body=load_fixture("latest.json"),
+    )
+    assert await client.get_user_id() == 218886794
