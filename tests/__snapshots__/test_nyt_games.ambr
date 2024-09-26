@@ -67,3 +67,35 @@
     }),
   })
 # ---
+# name: test_get_latest[no_spelling_bee.json]
+  dict({
+    'spelling_bee': dict({
+      'puzzles_started': 0,
+      'ranks': dict({
+        'beginner': 0,
+        'good': 0,
+        'good_start': 0,
+        'moving_up': 0,
+        'nice': 0,
+        'solid': 0,
+      }),
+      'total_pangrams': 0,
+      'total_words': 0,
+    }),
+    'wordle': dict({
+      'current_streak': 0,
+      'games_played': 1,
+      'games_won': 1,
+      'guesses': dict({
+        '1': 0,
+        '2': 0,
+        '3': 0,
+        '4': 0,
+        '5': 1,
+        '6': 0,
+        'fail': 0,
+      }),
+      'max_streak': 1,
+    }),
+  })
+# ---

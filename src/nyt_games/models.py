@@ -97,12 +97,12 @@ class SpellingBee(DataClassORJSONMixin):
 class SpellingBeeRanks(DataClassORJSONMixin):
     """SpellingBeeRanks mode."""
 
-    beginner: int = field(metadata=field_options(alias="Beginner"))
-    good: int = field(metadata=field_options(alias="Good"))
-    good_start: int = field(metadata=field_options(alias="Good Start"))
-    moving_up: int = field(metadata=field_options(alias="Moving Up"))
-    nice: int = field(metadata=field_options(alias="Nice"))
-    solid: int = field(metadata=field_options(alias="Solid"))
+    beginner: int = field(metadata=field_options(alias="Beginner"), default=0)
+    good: int = field(metadata=field_options(alias="Good"), default=0)
+    good_start: int = field(metadata=field_options(alias="Good Start"), default=0)
+    moving_up: int = field(metadata=field_options(alias="Moving Up"), default=0)
+    nice: int = field(metadata=field_options(alias="Nice"), default=0)
+    solid: int = field(metadata=field_options(alias="Solid"), default=0)
 
 
 class WordleStats(Root[LatestDataStats]):
