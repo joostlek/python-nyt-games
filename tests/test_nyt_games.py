@@ -122,7 +122,9 @@ async def test_client_error(
         await client.get_latest_stats()
 
 
-@pytest.mark.parametrize("fixture", ["latest.json", "new_account.json"])
+@pytest.mark.parametrize(
+    "fixture", ["latest.json", "new_account.json", "no_spelling_bee.json"]
+)
 async def test_get_latest(
     responses: aioresponses,
     client: NYTGamesClient,
