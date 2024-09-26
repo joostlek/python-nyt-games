@@ -3,13 +3,28 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date  # noqa: TCH003
+from datetime import date
 from typing import Any, Generic, TypeVar
 
 from mashumaro import field_options
 from mashumaro.mixins.orjson import DataClassORJSONMixin
+from mashumaro.types import SerializationStrategy
 
 T = TypeVar("T")
+
+
+class OptionalStringSerializationStrategy(SerializationStrategy):
+    """Serialization strategy for optional strings."""
+
+    def serialize(self, value: date | None) -> date | None:
+        """Serialize optional string."""
+        return value
+
+    def deserialize(self, value: str | None) -> date | None:
+        """Deserialize optional string."""
+        if not value:
+            return None
+        return date.fromisoformat(value)
 
 
 @dataclass
@@ -32,7 +47,7 @@ class LatestDataStats(DataClassORJSONMixin):
     """LatestData model."""
 
     wordle: Wordle
-    spelling_bee: SpellingBee
+    spelling_bee: SpellingBee | None = None
 
 
 @dataclass
@@ -61,13 +76,11 @@ class Wordle(DataClassORJSONMixin):
     guesses: dict[str, int]
     current_streak: int = field(metadata=field_options(alias="currentStreak"))
     max_streak: int = field(metadata=field_options(alias="maxStreak"))
-    last_won: date = field(metadata=field_options(alias="lastWonPrintDate"))
-    last_completed: date = field(metadata=field_options(alias="lastCompletedPrintDate"))
 
     @classmethod
     def __pre_deserialize__(cls, d: dict[str, dict[str, Any]]) -> dict[str, Any]:
         """Pre deserialization hook."""
-        return d["calculatedStats"]
+        return d["legacyStats"]
 
 
 @dataclass

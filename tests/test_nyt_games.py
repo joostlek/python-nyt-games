@@ -122,16 +122,18 @@ async def test_client_error(
         await client.get_latest_stats()
 
 
+@pytest.mark.parametrize("fixture", ["latest.json", "new_account.json"])
 async def test_get_latest(
     responses: aioresponses,
     client: NYTGamesClient,
     snapshot: SnapshotAssertion,
+    fixture: str,
 ) -> None:
     """Test status call."""
     responses.get(
         f"{MOCK_URL}/svc/games/state/wordleV2/latests",
         status=200,
-        body=load_fixture("latest.json"),
+        body=load_fixture(fixture),
     )
     assert await client.get_latest_stats() == snapshot
     responses.assert_called_once_with(
