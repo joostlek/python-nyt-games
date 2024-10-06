@@ -166,6 +166,24 @@ async def test_get_connections(
     )
 
 
+async def test_get_connections_new_player(
+    responses: aioresponses, client: NYTGamesClient
+) -> None:
+    """Test retrieving connections."""
+    responses.get(
+        f"{MOCK_URL}/svc/games/state/connections/latests?puzzle_ids=0",
+        status=200,
+        body=load_fixture("new_account_connections.json"),
+    )
+    assert await client.get_connections() is None
+    responses.assert_called_once_with(
+        f"{MOCK_URL}/svc/games/state/connections/latests",
+        METH_GET,
+        headers=HEADERS,
+        params={"puzzle_ids": "0"},
+    )
+
+
 async def test_get_user_id(
     responses: aioresponses,
     client: NYTGamesClient,
