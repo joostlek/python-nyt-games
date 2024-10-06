@@ -89,11 +89,13 @@ class NYTGamesClient:
         """Get latest stats."""
         return (await self._get_wordle_stats()).player.stats
 
-    async def get_connections(self) -> Connections:
+    async def get_connections(self) -> Connections | None:
         """Get connections stats."""
         response = await self._request(
             "svc/games/state/connections/latests", {"puzzle_ids": "0"}
         )
+        if "player" not in response:
+            return None
         return ConnectionsStats.from_json(response).player.stats
 
     async def close(self) -> None:
