@@ -94,7 +94,7 @@ class NYTGamesClient:
         response = await self._request(
             "svc/games/state/connections/latests", {"puzzle_ids": "0"}
         )
-        if "player" not in response:
+        if "player" not in response or 'last_played_print_date": ""' in response:
             return None
         return ConnectionsStats.from_json(response).player.stats
 
