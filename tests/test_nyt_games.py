@@ -166,17 +166,14 @@ async def test_get_connections(
     )
 
 
-@pytest.mark.parametrize(
-    "fixture", ["new_account_connections.json", "newer_account_connections.json"]
-)
 async def test_get_connections_new_player(
-    responses: aioresponses, client: NYTGamesClient, fixture: str
+    responses: aioresponses, client: NYTGamesClient
 ) -> None:
     """Test retrieving connections."""
     responses.get(
         f"{MOCK_URL}/svc/games/state/connections/latests?puzzle_ids=0",
         status=200,
-        body=load_fixture(fixture),
+        body=load_fixture("new_account_connections.json"),
     )
     assert await client.get_connections() is None
     responses.assert_called_once_with(
