@@ -1,6 +1,6 @@
 """Asynchronous Python client for NYT Games."""
 
-from typing import AsyncGenerator, Generator
+from collections.abc import AsyncGenerator, Generator
 
 import aiohttp
 from aioresponses import aioresponses
@@ -21,10 +21,13 @@ def snapshot_assertion(snapshot: SnapshotAssertion) -> SnapshotAssertion:
 @pytest.fixture
 async def client() -> AsyncGenerator[NYTGamesClient, None]:
     """Return a NYT Games client."""
-    async with aiohttp.ClientSession() as session, NYTGamesClient(
-        "token",
-        session=session,
-    ) as nyt_games_client:
+    async with (
+        aiohttp.ClientSession() as session,
+        NYTGamesClient(
+            "token",
+            session=session,
+        ) as nyt_games_client,
+    ):
         yield nyt_games_client
 
 
