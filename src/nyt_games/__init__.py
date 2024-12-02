@@ -18,16 +18,16 @@ from nyt_games.models import (
 from nyt_games.nyt_games import NYTGamesClient
 
 __all__ = [
-    "NYTGamesClient",
-    "NYTGamesError",
-    "NYTGamesConnectionError",
-    "NYTGamesAuthenticationError",
-    "NYTGamesParseError",
-    "LatestDataStats",
     "Connections",
+    "ConnectionsStats",
+    "LatestDataStats",
+    "NYTGamesAuthenticationError",
+    "NYTGamesClient",
+    "NYTGamesConnectionError",
+    "NYTGamesError",
+    "NYTGamesParseError",
     "SpellingBee",
     "SpellingBeeRanks",
-    "WordleStats",
-    "ConnectionsStats",
     "Wordle",
+    "WordleStats",
 ]
