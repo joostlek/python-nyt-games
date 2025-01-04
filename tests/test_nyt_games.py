@@ -198,3 +198,29 @@ async def test_get_user_id(
         body=load_fixture("latest.json"),
     )
     assert await client.get_user_id() == 218886794
+
+
+@pytest.mark.parametrize(
+    "fixture",
+    [
+        "crossword_stats_existing_player.json",
+        "crossword_stats_new_player.json",
+    ],
+)
+async def test_crossword_stats(
+    responses: aioresponses,
+    client: NYTGamesClient,
+    snapshot: SnapshotAssertion,
+    fixture: str,
+) -> None:
+    """Test fetching crossword stats."""
+    fixture_text = load_fixture(fixture)
+    url = f"{MOCK_URL}/svc/crosswords/v3/10781499/stats-and-streaks.json"
+    responses.get(
+        f"{url}?date_start=1988-01-01&start_on_monday=true",
+        body=fixture_text,
+    )
+
+    stats = await client.get_crossword_stats()
+
+    assert stats == snapshot
