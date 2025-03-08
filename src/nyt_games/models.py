@@ -51,6 +51,68 @@ class LatestDataStats(DataClassORJSONMixin):
 
 
 @dataclass
+class CrosswordRoot(DataClassORJSONMixin, Generic[T]):
+    """Crossword model."""
+
+    results: T
+    status: str
+
+
+@dataclass
+class StatsByDay(DataClassORJSONMixin):
+    """StatsByDay model."""
+
+    avg_denominator: int
+    avg_time: int
+    best_date: date | str | None
+    best_time: int
+    label: str
+    latest_date: date | str | None
+    latest_time: int
+    this_weeks_time: int
+
+
+@dataclass
+class VerticalStreak(DataClassORJSONMixin):
+    """VerticalStreak model."""
+
+    length: int
+    next_date: date | str | None = None
+
+
+@dataclass
+class CrosswordStreaks(DataClassORJSONMixin):
+    """CrosswordStreaks model."""
+
+    current_streak: int
+    date_end: date
+    date_start: date
+    dates: list[list[date]]
+    longest_streak: int
+    vertical_streaks: list[VerticalStreak]
+
+
+@dataclass
+class CrosswordStats(DataClassORJSONMixin):
+    """CrosswordStats model."""
+
+    longest_avg_time: int
+    longest_latest_time: int
+    puzzles_attempted: int
+    puzzles_solved: int
+    solve_rate: float
+    stats_by_day: list[StatsByDay]
+
+
+@dataclass
+class CrosswordStatsAndStreaks(DataClassORJSONMixin):
+    """Crossword model."""
+
+    stats: CrosswordStats
+    streaks: CrosswordStreaks
+
+
+@dataclass
 class Connections(DataClassORJSONMixin):
     """Connections model."""
 
@@ -111,3 +173,7 @@ class WordleStats(Root[LatestDataStats]):
 
 class ConnectionsStats(Root[Connections]):
     """ConnectionsStats model."""
+
+
+class CrosswordStatsInfo(CrosswordRoot[CrosswordStatsAndStreaks]):
+    """CrosswordStats model."""

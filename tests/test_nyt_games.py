@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 from typing import TYPE_CHECKING, Any
 
 import aiohttp
@@ -198,3 +199,36 @@ async def test_get_user_id(
         body=load_fixture("latest.json"),
     )
     assert await client.get_user_id() == 218886794
+
+
+@pytest.mark.parametrize(
+    "fixture",
+    [
+        "crossword_stats_existing_player.json",
+        "crossword_stats_new_player.json",
+    ],
+)
+async def test_crossword_stats(
+    responses: aioresponses,
+    client: NYTGamesClient,
+    fixture: str,
+) -> None:
+    """Test fetching crossword stats."""
+    fixture_text = load_fixture(fixture)
+    url = f"{MOCK_URL}/svc/crosswords/v3/10781499/stats-and-streaks.json"
+    responses.get(
+        f"{url}?date_start=1988-01-01&start_on_monday=true",
+        body=fixture_text,
+    )
+
+    fixture_data = json.loads(fixture_text)
+
+    attempted = fixture_data["results"]["stats"].get("puzzles_attempted")
+    streak = fixture_data["results"]["streaks"].get("current_streak")
+    solved = fixture_data["results"]["stats"].get("puzzles_solved")
+
+    stats = await client.get_crossword_stats()
+
+    assert stats.stats.puzzles_solved == solved
+    assert stats.stats.puzzles_attempted == attempted
+    assert stats.streaks.current_streak == streak
