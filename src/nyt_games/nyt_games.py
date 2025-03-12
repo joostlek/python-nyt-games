@@ -12,7 +12,14 @@ from aiohttp import ClientError, ClientResponseError, ClientSession
 from yarl import URL
 
 from .exceptions import NYTGamesAuthenticationError, NYTGamesConnectionError
-from .models import Connections, ConnectionsStats, LatestDataStats, WordleStats
+from .models import (
+    Connections,
+    ConnectionsStats,
+    CrosswordStatsAndStreaks,
+    CrosswordStatsInfo,
+    LatestDataStats,
+    WordleStats,
+)
 
 if TYPE_CHECKING:
     from typing_extensions import Self
@@ -88,6 +95,17 @@ class NYTGamesClient:
     async def get_latest_stats(self) -> LatestDataStats:
         """Get latest stats."""
         return (await self._get_wordle_stats()).player.stats
+
+    async def get_crossword_stats(self) -> CrosswordStatsAndStreaks:
+        """Get crossword stats."""
+        response = await self._request(
+            "svc/crosswords/v3/10781499/stats-and-streaks.json",
+            params={
+                "date_start": "1988-01-01",  # nyt.com uses this date
+                "start_on_monday": "true",
+            },
+        )
+        return CrosswordStatsInfo.from_json(response).results
 
     async def get_connections(self) -> Connections | None:
         """Get connections stats."""

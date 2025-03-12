@@ -1,0 +1,37 @@
+{
+  "results": {
+    "stats": {
+      "longest_avg_time": 0,
+      "longest_latest_time": 0,
+      "puzzles_attempted": 0,
+      "puzzles_solved": 0,
+      "solve_rate": 0,
+      "stats_by_day": [
+        {
+          "avg_denominator": 0,
+          "avg_time": 0,
+          "best_date": "",
+          "best_time": 0,
+          "label": "Monday",
+          "latest_date": "",
+          "latest_time": 0,
+          "this_weeks_time": 0
+        }
+      ]
+    },
+    "streaks": {
+      "current_streak": 0,
+      "date_end": "2025-03-08",
+      "date_start": "1988-01-01",
+      "dates": [],
+      "longest_streak": 0,
+      "vertical_streaks": [
+        {
+          "length": 0,
+          "next_date": ""
+        }
+      ]
+    }
+  },
+  "status": "OK"
+}
