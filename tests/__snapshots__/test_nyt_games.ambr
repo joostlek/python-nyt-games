@@ -1,4 +1,702 @@
 # serializer version: 1
+# name: test_crossword_stats[crossword_stats_existing_player.json]
+  dict({
+    'stats': dict({
+      'longest_avg_time': 1802,
+      'longest_latest_time': 1475,
+      'puzzles_attempted': 4572,
+      'puzzles_solved': 4565,
+      'solve_rate': 0.998,
+      'stats_by_day': list([
+        dict({
+          'avg_denominator': 659,
+          'avg_time': 347,
+          'best_date': datetime.date(2024, 9, 16),
+          'best_time': 97,
+          'label': 'Monday',
+          'latest_date': datetime.date(2025, 3, 3),
+          'latest_time': 203,
+          'this_weeks_time': 203,
+        }),
+        dict({
+          'avg_denominator': 653,
+          'avg_time': 470,
+          'best_date': datetime.date(2022, 3, 8),
+          'best_time': 196,
+          'label': 'Tuesday',
+          'latest_date': datetime.date(2025, 3, 4),
+          'latest_time': 331,
+          'this_weeks_time': 331,
+        }),
+        dict({
+          'avg_denominator': 649,
+          'avg_time': 613,
+          'best_date': datetime.date(2021, 10, 27),
+          'best_time': 249,
+          'label': 'Wednesday',
+          'latest_date': datetime.date(2025, 3, 5),
+          'latest_time': 420,
+          'this_weeks_time': 420,
+        }),
+        dict({
+          'avg_denominator': 652,
+          'avg_time': 1066,
+          'best_date': datetime.date(2021, 12, 30),
+          'best_time': 332,
+          'label': 'Thursday',
+          'latest_date': datetime.date(2025, 3, 6),
+          'latest_time': 558,
+          'this_weeks_time': 558,
+        }),
+        dict({
+          'avg_denominator': 649,
+          'avg_time': 1185,
+          'best_date': datetime.date(2024, 12, 6),
+          'best_time': 367,
+          'label': 'Friday',
+          'latest_date': datetime.date(2025, 3, 7),
+          'latest_time': 481,
+          'this_weeks_time': 481,
+        }),
+        dict({
+          'avg_denominator': 650,
+          'avg_time': 1603,
+          'best_date': datetime.date(2024, 1, 13),
+          'best_time': 390,
+          'label': 'Saturday',
+          'latest_date': datetime.date(2025, 3, 8),
+          'latest_time': 1222,
+          'this_weeks_time': 1222,
+        }),
+        dict({
+          'avg_denominator': 653,
+          'avg_time': 1802,
+          'best_date': datetime.date(2014, 3, 23),
+          'best_time': 666,
+          'label': 'Sunday',
+          'latest_date': datetime.date(2025, 3, 2),
+          'latest_time': 1475,
+          'this_weeks_time': 0,
+        }),
+      ]),
+    }),
+    'streaks': dict({
+      'current_streak': 121,
+      'date_end': datetime.date(2025, 3, 8),
+      'date_start': datetime.date(1988, 1, 1),
+      'dates': list([
+        list([
+          datetime.date(2015, 10, 27),
+          datetime.date(2015, 10, 28),
+        ]),
+        list([
+          datetime.date(2015, 11, 2),
+          datetime.date(2015, 11, 4),
+        ]),
+        list([
+          datetime.date(2015, 11, 6),
+        ]),
+        list([
+          datetime.date(2015, 11, 9),
+          datetime.date(2015, 11, 10),
+        ]),
+        list([
+          datetime.date(2015, 11, 21),
+        ]),
+        list([
+          datetime.date(2015, 11, 23),
+          datetime.date(2015, 11, 24),
+        ]),
+        list([
+          datetime.date(2015, 11, 27),
+        ]),
+        list([
+          datetime.date(2015, 11, 30),
+          datetime.date(2015, 12, 2),
+        ]),
+        list([
+          datetime.date(2015, 12, 7),
+          datetime.date(2015, 12, 9),
+        ]),
+        list([
+          datetime.date(2015, 12, 11),
+        ]),
+        list([
+          datetime.date(2015, 12, 14),
+          datetime.date(2015, 12, 16),
+        ]),
+        list([
+          datetime.date(2015, 12, 22),
+          datetime.date(2015, 12, 24),
+        ]),
+        list([
+          datetime.date(2015, 12, 26),
+          datetime.date(2015, 12, 30),
+        ]),
+        list([
+          datetime.date(2016, 1, 1),
+        ]),
+        list([
+          datetime.date(2016, 1, 4),
+          datetime.date(2016, 1, 6),
+        ]),
+        list([
+          datetime.date(2016, 1, 8),
+        ]),
+        list([
+          datetime.date(2016, 1, 11),
+        ]),
+        list([
+          datetime.date(2016, 1, 13),
+          datetime.date(2016, 1, 14),
+        ]),
+        list([
+          datetime.date(2016, 1, 18),
+          datetime.date(2016, 1, 21),
+        ]),
+        list([
+          datetime.date(2016, 1, 23),
+        ]),
+        list([
+          datetime.date(2016, 1, 25),
+          datetime.date(2016, 1, 26),
+        ]),
+        list([
+          datetime.date(2016, 1, 28),
+          datetime.date(2016, 1, 29),
+        ]),
+        list([
+          datetime.date(2016, 2, 1),
+          datetime.date(2016, 2, 3),
+        ]),
+        list([
+          datetime.date(2016, 2, 10),
+          datetime.date(2016, 2, 11),
+        ]),
+        list([
+          datetime.date(2016, 2, 15),
+          datetime.date(2016, 2, 16),
+        ]),
+        list([
+          datetime.date(2016, 2, 20),
+        ]),
+        list([
+          datetime.date(2016, 2, 22),
+          datetime.date(2016, 2, 23),
+        ]),
+        list([
+          datetime.date(2016, 2, 29),
+        ]),
+        list([
+          datetime.date(2016, 3, 4),
+        ]),
+        list([
+          datetime.date(2016, 3, 9),
+        ]),
+        list([
+          datetime.date(2016, 3, 16),
+          datetime.date(2016, 3, 17),
+        ]),
+        list([
+          datetime.date(2016, 3, 20),
+          datetime.date(2016, 3, 24),
+        ]),
+        list([
+          datetime.date(2016, 3, 26),
+        ]),
+        list([
+          datetime.date(2016, 3, 29),
+        ]),
+        list([
+          datetime.date(2016, 3, 31),
+          datetime.date(2016, 4, 2),
+        ]),
+        list([
+          datetime.date(2016, 4, 12),
+          datetime.date(2016, 4, 14),
+        ]),
+        list([
+          datetime.date(2016, 4, 18),
+        ]),
+        list([
+          datetime.date(2016, 4, 22),
+        ]),
+        list([
+          datetime.date(2016, 5, 2),
+          datetime.date(2016, 5, 4),
+        ]),
+        list([
+          datetime.date(2016, 5, 11),
+          datetime.date(2016, 5, 12),
+        ]),
+        list([
+          datetime.date(2016, 5, 14),
+          datetime.date(2016, 5, 17),
+        ]),
+        list([
+          datetime.date(2016, 5, 19),
+        ]),
+        list([
+          datetime.date(2016, 5, 23),
+        ]),
+        list([
+          datetime.date(2016, 5, 25),
+          datetime.date(2016, 5, 26),
+        ]),
+        list([
+          datetime.date(2016, 5, 28),
+        ]),
+        list([
+          datetime.date(2016, 5, 31),
+          datetime.date(2016, 6, 2),
+        ]),
+        list([
+          datetime.date(2016, 6, 5),
+          datetime.date(2016, 6, 6),
+        ]),
+        list([
+          datetime.date(2016, 6, 8),
+          datetime.date(2016, 6, 9),
+        ]),
+        list([
+          datetime.date(2016, 6, 13),
+          datetime.date(2016, 6, 18),
+        ]),
+        list([
+          datetime.date(2016, 6, 20),
+          datetime.date(2016, 6, 21),
+        ]),
+        list([
+          datetime.date(2016, 6, 23),
+          datetime.date(2016, 6, 24),
+        ]),
+        list([
+          datetime.date(2016, 6, 26),
+        ]),
+        list([
+          datetime.date(2016, 6, 29),
+        ]),
+        list([
+          datetime.date(2016, 7, 4),
+          datetime.date(2016, 7, 6),
+        ]),
+        list([
+          datetime.date(2016, 7, 8),
+          datetime.date(2016, 7, 10),
+        ]),
+        list([
+          datetime.date(2016, 7, 12),
+          datetime.date(2016, 7, 14),
+        ]),
+        list([
+          datetime.date(2016, 7, 18),
+        ]),
+        list([
+          datetime.date(2016, 7, 20),
+        ]),
+        list([
+          datetime.date(2016, 7, 27),
+        ]),
+        list([
+          datetime.date(2016, 8, 2),
+          datetime.date(2016, 8, 6),
+        ]),
+        list([
+          datetime.date(2016, 8, 8),
+          datetime.date(2016, 8, 10),
+        ]),
+        list([
+          datetime.date(2016, 8, 15),
+          datetime.date(2016, 8, 16),
+        ]),
+        list([
+          datetime.date(2016, 8, 19),
+        ]),
+        list([
+          datetime.date(2016, 8, 24),
+        ]),
+        list([
+          datetime.date(2016, 8, 28),
+          datetime.date(2016, 8, 29),
+        ]),
+        list([
+          datetime.date(2016, 8, 31),
+        ]),
+        list([
+          datetime.date(2016, 9, 12),
+        ]),
+        list([
+          datetime.date(2016, 9, 14),
+        ]),
+        list([
+          datetime.date(2016, 9, 17),
+        ]),
+        list([
+          datetime.date(2016, 9, 19),
+        ]),
+        list([
+          datetime.date(2016, 9, 22),
+          datetime.date(2016, 9, 23),
+        ]),
+        list([
+          datetime.date(2016, 9, 26),
+        ]),
+        list([
+          datetime.date(2016, 9, 28),
+        ]),
+        list([
+          datetime.date(2016, 9, 30),
+        ]),
+        list([
+          datetime.date(2016, 10, 4),
+          datetime.date(2016, 10, 8),
+        ]),
+        list([
+          datetime.date(2016, 10, 10),
+          datetime.date(2016, 10, 20),
+        ]),
+        list([
+          datetime.date(2016, 10, 24),
+          datetime.date(2016, 10, 30),
+        ]),
+        list([
+          datetime.date(2016, 11, 2),
+          datetime.date(2016, 11, 3),
+        ]),
+        list([
+          datetime.date(2016, 11, 7),
+        ]),
+        list([
+          datetime.date(2016, 11, 9),
+          datetime.date(2016, 12, 15),
+        ]),
+        list([
+          datetime.date(2016, 12, 17),
+          datetime.date(2016, 12, 20),
+        ]),
+        list([
+          datetime.date(2016, 12, 23),
+          datetime.date(2017, 1, 5),
+        ]),
+        list([
+          datetime.date(2017, 1, 7),
+          datetime.date(2017, 1, 8),
+        ]),
+        list([
+          datetime.date(2017, 1, 11),
+          datetime.date(2017, 1, 12),
+        ]),
+        list([
+          datetime.date(2017, 1, 14),
+          datetime.date(2017, 1, 15),
+        ]),
+        list([
+          datetime.date(2017, 1, 17),
+          datetime.date(2017, 2, 7),
+        ]),
+        list([
+          datetime.date(2017, 2, 10),
+        ]),
+        list([
+          datetime.date(2017, 2, 12),
+          datetime.date(2017, 2, 19),
+        ]),
+        list([
+          datetime.date(2017, 2, 21),
+          datetime.date(2017, 2, 24),
+        ]),
+        list([
+          datetime.date(2017, 3, 3),
+        ]),
+        list([
+          datetime.date(2017, 3, 13),
+          datetime.date(2017, 3, 17),
+        ]),
+        list([
+          datetime.date(2017, 3, 20),
+          datetime.date(2017, 3, 23),
+        ]),
+        list([
+          datetime.date(2017, 3, 27),
+          datetime.date(2017, 3, 28),
+        ]),
+        list([
+          datetime.date(2017, 3, 31),
+        ]),
+        list([
+          datetime.date(2017, 4, 3),
+        ]),
+        list([
+          datetime.date(2017, 4, 5),
+          datetime.date(2017, 4, 6),
+        ]),
+        list([
+          datetime.date(2017, 4, 8),
+        ]),
+        list([
+          datetime.date(2017, 4, 10),
+          datetime.date(2017, 4, 26),
+        ]),
+        list([
+          datetime.date(2017, 4, 28),
+        ]),
+        list([
+          datetime.date(2017, 5, 1),
+          datetime.date(2017, 5, 20),
+        ]),
+        list([
+          datetime.date(2017, 5, 22),
+          datetime.date(2017, 6, 16),
+        ]),
+        list([
+          datetime.date(2017, 6, 19),
+          datetime.date(2017, 6, 21),
+        ]),
+        list([
+          datetime.date(2017, 6, 23),
+          datetime.date(2017, 6, 26),
+        ]),
+        list([
+          datetime.date(2017, 7, 4),
+          datetime.date(2017, 7, 14),
+        ]),
+        list([
+          datetime.date(2017, 7, 16),
+          datetime.date(2017, 7, 24),
+        ]),
+        list([
+          datetime.date(2017, 7, 26),
+          datetime.date(2017, 8, 12),
+        ]),
+        list([
+          datetime.date(2017, 8, 14),
+          datetime.date(2017, 8, 18),
+        ]),
+        list([
+          datetime.date(2017, 8, 21),
+          datetime.date(2017, 8, 26),
+        ]),
+        list([
+          datetime.date(2017, 8, 28),
+          datetime.date(2017, 9, 3),
+        ]),
+        list([
+          datetime.date(2017, 9, 5),
+          datetime.date(2018, 2, 16),
+        ]),
+        list([
+          datetime.date(2018, 2, 18),
+          datetime.date(2018, 3, 3),
+        ]),
+        list([
+          datetime.date(2018, 3, 5),
+          datetime.date(2018, 3, 10),
+        ]),
+        list([
+          datetime.date(2018, 3, 12),
+          datetime.date(2018, 3, 31),
+        ]),
+        list([
+          datetime.date(2018, 4, 3),
+          datetime.date(2018, 6, 4),
+        ]),
+        list([
+          datetime.date(2018, 6, 6),
+          datetime.date(2018, 6, 9),
+        ]),
+        list([
+          datetime.date(2018, 6, 11),
+          datetime.date(2018, 6, 12),
+        ]),
+        list([
+          datetime.date(2018, 6, 15),
+          datetime.date(2018, 8, 11),
+        ]),
+        list([
+          datetime.date(2018, 8, 13),
+          datetime.date(2018, 8, 16),
+        ]),
+        list([
+          datetime.date(2018, 8, 21),
+          datetime.date(2018, 8, 23),
+        ]),
+        list([
+          datetime.date(2018, 8, 25),
+        ]),
+        list([
+          datetime.date(2018, 8, 27),
+          datetime.date(2018, 9, 7),
+        ]),
+        list([
+          datetime.date(2018, 9, 9),
+        ]),
+        list([
+          datetime.date(2018, 9, 11),
+        ]),
+        list([
+          datetime.date(2018, 9, 13),
+          datetime.date(2018, 9, 22),
+        ]),
+        list([
+          datetime.date(2018, 9, 24),
+          datetime.date(2018, 9, 30),
+        ]),
+        list([
+          datetime.date(2018, 10, 3),
+          datetime.date(2018, 11, 2),
+        ]),
+        list([
+          datetime.date(2018, 11, 4),
+          datetime.date(2018, 11, 7),
+        ]),
+        list([
+          datetime.date(2018, 11, 9),
+          datetime.date(2019, 3, 9),
+        ]),
+        list([
+          datetime.date(2019, 3, 11),
+          datetime.date(2019, 4, 1),
+        ]),
+        list([
+          datetime.date(2019, 4, 4),
+          datetime.date(2019, 7, 4),
+        ]),
+        list([
+          datetime.date(2019, 7, 6),
+          datetime.date(2019, 8, 3),
+        ]),
+        list([
+          datetime.date(2019, 8, 5),
+          datetime.date(2019, 8, 31),
+        ]),
+        list([
+          datetime.date(2019, 9, 3),
+          datetime.date(2019, 9, 7),
+        ]),
+        list([
+          datetime.date(2019, 9, 9),
+          datetime.date(2019, 9, 14),
+        ]),
+        list([
+          datetime.date(2019, 9, 16),
+          datetime.date(2020, 1, 18),
+        ]),
+        list([
+          datetime.date(2020, 1, 20),
+          datetime.date(2020, 3, 20),
+        ]),
+        list([
+          datetime.date(2020, 3, 22),
+          datetime.date(2020, 4, 29),
+        ]),
+        list([
+          datetime.date(2020, 5, 1),
+          datetime.date(2020, 6, 27),
+        ]),
+        list([
+          datetime.date(2020, 6, 29),
+          datetime.date(2020, 10, 23),
+        ]),
+        list([
+          datetime.date(2020, 10, 26),
+          datetime.date(2020, 11, 6),
+        ]),
+        list([
+          datetime.date(2020, 11, 9),
+          datetime.date(2022, 6, 28),
+        ]),
+        list([
+          datetime.date(2022, 6, 30),
+          datetime.date(2023, 5, 29),
+        ]),
+        list([
+          datetime.date(2023, 5, 31),
+          datetime.date(2023, 6, 30),
+        ]),
+        list([
+          datetime.date(2023, 7, 3),
+          datetime.date(2024, 8, 6),
+        ]),
+        list([
+          datetime.date(2024, 8, 8),
+          datetime.date(2024, 11, 4),
+        ]),
+        list([
+          datetime.date(2024, 11, 8),
+          datetime.date(2025, 3, 8),
+        ]),
+      ]),
+      'longest_streak': 597,
+      'vertical_streaks': list([
+        dict({
+          'length': 87,
+          'next_date': '',
+        }),
+        dict({
+          'length': 287,
+          'next_date': '',
+        }),
+        dict({
+          'length': 17,
+          'next_date': '',
+        }),
+        dict({
+          'length': 17,
+          'next_date': '',
+        }),
+        dict({
+          'length': 17,
+          'next_date': '',
+        }),
+        dict({
+          'length': 296,
+          'next_date': '',
+        }),
+        dict({
+          'length': 88,
+          'next_date': '',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_crossword_stats[crossword_stats_new_player.json]
+  dict({
+    'stats': dict({
+      'longest_avg_time': 0,
+      'longest_latest_time': 0,
+      'puzzles_attempted': 0,
+      'puzzles_solved': 0,
+      'solve_rate': 0.0,
+      'stats_by_day': list([
+        dict({
+          'avg_denominator': 0,
+          'avg_time': 0,
+          'best_date': '',
+          'best_time': 0,
+          'label': 'Monday',
+          'latest_date': '',
+          'latest_time': 0,
+          'this_weeks_time': 0,
+        }),
+      ]),
+    }),
+    'streaks': dict({
+      'current_streak': 0,
+      'date_end': datetime.date(2025, 3, 8),
+      'date_start': datetime.date(1988, 1, 1),
+      'dates': list([
+      ]),
+      'longest_streak': 0,
+      'vertical_streaks': list([
+        dict({
+          'length': 0,
+          'next_date': '',
+        }),
+      ]),
+    }),
+  })
+# ---
 # name: test_get_connections
   dict({
     'current_streak': 0,
