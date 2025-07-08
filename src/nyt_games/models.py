@@ -142,7 +142,11 @@ class Wordle(DataClassORJSONMixin):
     @classmethod
     def __pre_deserialize__(cls, d: dict[str, dict[str, Any]]) -> dict[str, Any]:
         """Pre deserialization hook."""
-        return d["legacyStats"]
+        return (
+            d.get("legacyStats", {})
+            | d.get("totalStats", {})
+            | d.get("calculatedStats", {})
+        )
 
 
 @dataclass
