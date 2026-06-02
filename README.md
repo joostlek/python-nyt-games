@@ -47,19 +47,19 @@ Thank you for being involved! :heart_eyes:
 
 ## Setting up development environment
 
-This Python project is fully managed using the [Poetry][poetry] dependency manager. But also relies on the use of NodeJS for certain checks during development.
+This Python project is fully managed using the [uv][uv] dependency manager. But also relies on the use of NodeJS for certain checks during development.
 
 You need at least:
 
 - Python 3.13+
-- [Poetry][poetry-install]
+- [uv][uv-install]
 - NodeJS 12+ (including NPM)
 
 To install all packages, including all development requirements:
 
 ```bash
 npm install
-poetry install
+uv sync --all-groups
 ```
 
 As this repository uses the [prek][prek] framework, all changes
@@ -67,13 +67,13 @@ are linted and tested with each commit. You can run all checks and tests
 manually, using the following command:
 
 ```bash
-poetry run prek run --all-files
+uv run prek run --all-files
 ```
 
 To run just the Python tests:
 
 ```bash
-poetry run pytest
+uv run pytest
 ```
 
 ## Authors & contributors
@@ -121,6 +121,8 @@ SOFTWARE.
 [poetry-install]: https://python-poetry.org/docs/#installation
 [poetry]: https://python-poetry.org
 [prek]: https://prek.j178.dev/
+[uv]: https://docs.astral.sh/uv/
+[uv-install]: https://docs.astral.sh/uv/getting-started/installation/
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-stable-green.svg
 [python-versions-shield]: https://img.shields.io/pypi/pyversions/nyt_games
 [releases-shield]: https://img.shields.io/github/release/joostlek/python-nyt-games.svg
