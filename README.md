@@ -62,12 +62,12 @@ npm install
 poetry install
 ```
 
-As this repository uses the [pre-commit][pre-commit] framework, all changes
+As this repository uses the [prek][prek] framework, all changes
 are linted and tested with each commit. You can run all checks and tests
 manually, using the following command:
 
 ```bash
-poetry run pre-commit run --all-files
+poetry run prek run --all-files
 ```
 
 To run just the Python tests:
@@ -120,7 +120,7 @@ SOFTWARE.
 [maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg
 [poetry-install]: https://python-poetry.org/docs/#installation
 [poetry]: https://python-poetry.org
-[pre-commit]: https://pre-commit.com/
+[prek]: https://prek.j178.dev/
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-stable-green.svg
 [python-versions-shield]: https://img.shields.io/pypi/pyversions/nyt_games
 [releases-shield]: https://img.shields.io/github/release/joostlek/python-nyt-games.svg
