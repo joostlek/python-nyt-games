@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import date
-from typing import Any, Generic, TypeVar
+from typing import Any, TypeVar
 
 from mashumaro import field_options
 from mashumaro.mixins.orjson import DataClassORJSONMixin
@@ -28,14 +28,14 @@ class OptionalStringSerializationStrategy(SerializationStrategy):
 
 
 @dataclass
-class Root(DataClassORJSONMixin, Generic[T]):
+class Root[T](DataClassORJSONMixin):
     """LatestData model."""
 
     player: Player[T]
 
 
 @dataclass
-class Player(DataClassORJSONMixin, Generic[T]):
+class Player[T](DataClassORJSONMixin):
     """LatestData model."""
 
     stats: T
@@ -51,7 +51,7 @@ class LatestDataStats(DataClassORJSONMixin):
 
 
 @dataclass
-class CrosswordRoot(DataClassORJSONMixin, Generic[T]):
+class CrosswordRoot[T](DataClassORJSONMixin):
     """Crossword model."""
 
     results: T

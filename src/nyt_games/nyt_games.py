@@ -22,7 +22,7 @@ from .models import (
 )
 
 if TYPE_CHECKING:
-    from typing_extensions import Self
+    from typing import Self
 
 
 VERSION = metadata.version(__package__)
@@ -58,7 +58,7 @@ class NYTGamesClient:
         try:
             async with asyncio.timeout(self.request_timeout):
                 response = await self.session.get(url, headers=headers, params=params)
-        except asyncio.TimeoutError as exception:
+        except TimeoutError as exception:
             msg = "Timeout occurred while connecting to NYT Games"
             raise NYTGamesConnectionError(msg) from exception
         except (
