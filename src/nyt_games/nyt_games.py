@@ -18,6 +18,8 @@ from .models import (
     CrosswordStatsAndStreaks,
     CrosswordStatsInfo,
     LatestDataStats,
+    Strands,
+    StrandsStats,
     WordleStats,
 )
 
@@ -115,6 +117,15 @@ class NYTGamesClient:
         if "player" not in response or 'last_played_print_date": ""' in response:
             return None
         return ConnectionsStats.from_json(response).player.stats
+
+    async def get_strands(self) -> Strands | None:
+        """Get strands stats."""
+        response = await self._request(
+            "svc/games/state/strands/latests", {"puzzle_ids": "0"}
+        )
+        if "player" not in response or 'last_played_print_date": ""' in response:
+            return None
+        return StrandsStats.from_json(response).player.stats
 
     async def close(self) -> None:
         """Close open client session."""

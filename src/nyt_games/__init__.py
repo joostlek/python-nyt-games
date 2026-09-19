@@ -12,6 +12,8 @@ from nyt_games.models import (
     LatestDataStats,
     SpellingBee,
     SpellingBeeRanks,
+    Strands,
+    StrandsStats,
     Wordle,
     WordleStats,
 )
@@ -28,6 +30,8 @@ __all__ = [
     "NYTGamesParseError",
     "SpellingBee",
     "SpellingBeeRanks",
+    "Strands",
+    "StrandsStats",
     "Wordle",
     "WordleStats",
 ]

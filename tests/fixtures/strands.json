@@ -1,0 +1,21 @@
+{
+  "player": {
+    "user_id": 100946399,
+    "last_updated": 1781953129,
+    "stats": {
+      "strands": {
+        "puzzles_started": 127,
+        "puzzles_completed": 125,
+        "last_played_print_date": "2026-06-20",
+        "current_streak": 109,
+        "max_streak": 109,
+        "spangram_first": 26,
+        "no_hints": 121,
+        "generation": 2
+      },
+      "strands_found_theme_words": {
+        "found_theme_words": 888
+      }
+    }
+  }
+}
