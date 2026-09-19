@@ -181,3 +181,28 @@ class ConnectionsStats(Root[Connections]):
 
 class CrosswordStatsInfo(CrosswordRoot[CrosswordStatsAndStreaks]):
     """CrosswordStats model."""
+
+
+@dataclass
+class Strands(DataClassORJSONMixin):
+    """Strands model."""
+
+    puzzles_started: int
+    puzzles_completed: int
+    last_played_print_date: date
+    current_streak: int
+    max_streak: int
+    spangram_first: int
+    no_hints: int
+    found_theme_words: int
+
+    @classmethod
+    def __pre_deserialize__(cls, d: dict[str, dict[str, Any]]) -> dict[str, Any]:
+        """Pre deserialization hook."""
+        return d["strands"] | {
+            "found_theme_words": d["strands_found_theme_words"]["found_theme_words"]
+        }
+
+
+class StrandsStats(Root[Strands]):
+    """StrandsStats model."""

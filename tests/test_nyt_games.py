@@ -224,3 +224,42 @@ async def test_crossword_stats(
     stats = await client.get_crossword_stats()
 
     assert stats == snapshot
+
+
+async def test_get_strands(
+    responses: aiointercept,
+    client: NYTGamesClient,
+    snapshot: SnapshotAssertion,
+) -> None:
+    """Test retrieving strands stats."""
+    responses.get(
+        f"{MOCK_URL}/svc/games/state/strands/latests?puzzle_ids=0",
+        status=200,
+        body=load_fixture("strands.json"),
+    )
+    assert await client.get_strands() == snapshot
+    responses.assert_called_once_with(
+        f"{MOCK_URL}/svc/games/state/strands/latests",
+        METH_GET,
+        headers=HEADERS,
+        params={"puzzle_ids": "0"},
+    )
+
+
+async def test_get_strands_new_player(
+    responses: aiointercept,
+    client: NYTGamesClient,
+) -> None:
+    """Test retrieving strands stats for a player who has never played."""
+    responses.get(
+        f"{MOCK_URL}/svc/games/state/strands/latests?puzzle_ids=0",
+        status=200,
+        body=load_fixture("strands_new_player.json"),
+    )
+    assert await client.get_strands() is None
+    responses.assert_called_once_with(
+        f"{MOCK_URL}/svc/games/state/strands/latests",
+        METH_GET,
+        headers=HEADERS,
+        params={"puzzle_ids": "0"},
+    )
