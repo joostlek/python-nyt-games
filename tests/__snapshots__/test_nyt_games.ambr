@@ -803,3 +803,15 @@
     }),
   })
 # ---
+# name: test_get_strands
+  dict({
+    'current_streak': 109,
+    'found_theme_words': 888,
+    'last_played_print_date': datetime.date(2026, 6, 20),
+    'max_streak': 109,
+    'no_hints': 121,
+    'puzzles_completed': 125,
+    'puzzles_started': 127,
+    'spangram_first': 26,
+  })
+# ---
