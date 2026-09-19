@@ -8,7 +8,7 @@ from typing import TYPE_CHECKING, Any
 import aiohttp
 from aiohttp import ClientError
 from aiohttp.hdrs import METH_GET
-from aioresponses import CallbackResult, aioresponses
+from aiointercept import CallbackResult, aiointercept
 import pytest
 
 from nyt_games import NYTGamesClient, NYTGamesConnectionError, NYTGamesError
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 
 
 async def test_putting_in_own_session(
-    responses: aioresponses,
+    responses: aiointercept,
 ) -> None:
     """Test putting in own session."""
     responses.get(
@@ -39,7 +39,7 @@ async def test_putting_in_own_session(
 
 
 async def test_creating_own_session(
-    responses: aioresponses,
+    responses: aiointercept,
 ) -> None:
     """Test creating own session."""
     responses.get(
@@ -56,7 +56,7 @@ async def test_creating_own_session(
 
 
 async def test_unexpected_server_response(
-    responses: aioresponses,
+    responses: aiointercept,
     client: NYTGamesClient,
 ) -> None:
     """Test handling unexpected response."""
@@ -71,7 +71,7 @@ async def test_unexpected_server_response(
 
 
 async def test_unauthorized(
-    responses: aioresponses,
+    responses: aiointercept,
     client: NYTGamesClient,
 ) -> None:
     """Test handling unauthorized response."""
@@ -85,7 +85,7 @@ async def test_unauthorized(
 
 
 async def test_timeout(
-    responses: aioresponses,
+    responses: aiointercept,
 ) -> None:
     """Test request timeout."""
 
@@ -106,7 +106,7 @@ async def test_timeout(
 
 async def test_client_error(
     client: NYTGamesClient,
-    responses: aioresponses,
+    responses: aiointercept,
 ) -> None:
     """Test client error."""
 
@@ -126,7 +126,7 @@ async def test_client_error(
     "fixture", ["latest.json", "new_account.json", "no_spelling_bee.json"]
 )
 async def test_get_latest(
-    responses: aioresponses,
+    responses: aiointercept,
     client: NYTGamesClient,
     snapshot: SnapshotAssertion,
     fixture: str,
@@ -147,7 +147,7 @@ async def test_get_latest(
 
 
 async def test_get_connections(
-    responses: aioresponses,
+    responses: aiointercept,
     client: NYTGamesClient,
     snapshot: SnapshotAssertion,
 ) -> None:
@@ -170,7 +170,7 @@ async def test_get_connections(
     "fixture", ["new_account_connections.json", "newer_account_connections.json"]
 )
 async def test_get_connections_new_player(
-    responses: aioresponses, client: NYTGamesClient, fixture: str
+    responses: aiointercept, client: NYTGamesClient, fixture: str
 ) -> None:
     """Test retrieving connections."""
     responses.get(
@@ -188,7 +188,7 @@ async def test_get_connections_new_player(
 
 
 async def test_get_user_id(
-    responses: aioresponses,
+    responses: aiointercept,
     client: NYTGamesClient,
 ) -> None:
     """Test retrieving user_id."""
@@ -208,7 +208,7 @@ async def test_get_user_id(
     ],
 )
 async def test_crossword_stats(
-    responses: aioresponses,
+    responses: aiointercept,
     client: NYTGamesClient,
     snapshot: SnapshotAssertion,
     fixture: str,
