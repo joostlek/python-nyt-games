@@ -1130,7 +1130,6 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "aiohttp" },
     { name = "aiointercept" },
     { name = "codespell" },
     { name = "covdefaults" },
@@ -1158,7 +1157,6 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "aiohttp", specifier = "<3.14" },
     { name = "aiointercept", specifier = "==0.1.10" },
     { name = "codespell", specifier = "==2.4.3" },
     { name = "covdefaults", specifier = "==2.3.0" },
