@@ -138,6 +138,20 @@ class Wordle(DataClassORJSONMixin):
     guesses: dict[str, int]
     current_streak: int = field(metadata=field_options(alias="currentStreak"))
     max_streak: int = field(metadata=field_options(alias="maxStreak"))
+    last_won: date | None = field(
+        metadata=field_options(
+            alias="lastWonPrintDate",
+            serialization_strategy=OptionalStringSerializationStrategy(),
+        ),
+        default=None,
+    )
+    last_completed: date | None = field(
+        metadata=field_options(
+            alias="lastCompletedPrintDate",
+            serialization_strategy=OptionalStringSerializationStrategy(),
+        ),
+        default=None,
+    )
 
     @classmethod
     def __pre_deserialize__(cls, d: dict[str, dict[str, Any]]) -> dict[str, Any]:

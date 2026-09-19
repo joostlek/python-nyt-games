@@ -741,6 +741,8 @@
         '6': 166,
         'fail': 42,
       }),
+      'last_completed': datetime.date(2025, 7, 8),
+      'last_won': datetime.date(2025, 7, 8),
       'max_streak': 237,
     }),
   })
@@ -761,6 +763,8 @@
         '6': 0,
         'fail': 0,
       }),
+      'last_completed': None,
+      'last_won': None,
       'max_streak': 1,
     }),
   })
@@ -793,6 +797,8 @@
         '6': 0,
         'fail': 0,
       }),
+      'last_completed': None,
+      'last_won': None,
       'max_streak': 1,
     }),
   })
