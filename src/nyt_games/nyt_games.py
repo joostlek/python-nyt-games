@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 from dataclasses import dataclass
 from importlib import metadata
+import json
 import socket
 from typing import TYPE_CHECKING
 
@@ -114,18 +115,26 @@ class NYTGamesClient:
         response = await self._request(
             "svc/games/state/connections/latests", {"puzzle_ids": "0"}
         )
-        if "player" not in response or 'last_played_print_date": ""' in response:
+        data = json.loads(response)
+        if (
+            "player" not in data
+            or not data["player"]["stats"]["connections"]["last_played_print_date"]
+        ):
             return None
-        return ConnectionsStats.from_json(response).player.stats
+        return ConnectionsStats.from_dict(data).player.stats
 
     async def get_strands(self) -> Strands | None:
         """Get strands stats."""
         response = await self._request(
             "svc/games/state/strands/latests", {"puzzle_ids": "0"}
         )
-        if "player" not in response or 'last_played_print_date": ""' in response:
+        data = json.loads(response)
+        if (
+            "player" not in data
+            or not data["player"]["stats"]["strands"]["last_played_print_date"]
+        ):
             return None
-        return StrandsStats.from_json(response).player.stats
+        return StrandsStats.from_dict(data).player.stats
 
     async def close(self) -> None:
         """Close open client session."""
