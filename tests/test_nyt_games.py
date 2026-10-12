@@ -167,7 +167,12 @@ async def test_get_connections(
 
 
 @pytest.mark.parametrize(
-    "fixture", ["new_account_connections.json", "newer_account_connections.json"]
+    "fixture",
+    [
+        "new_account_connections.json",
+        "newer_account_connections.json",
+        "newer_account_connections_compact.json",
+    ],
 )
 async def test_get_connections_new_player(
     responses: aiointercept, client: NYTGamesClient, fixture: str
@@ -246,15 +251,19 @@ async def test_get_strands(
     )
 
 
+@pytest.mark.parametrize(
+    "fixture", ["strands_new_player.json", "strands_new_player_compact.json"]
+)
 async def test_get_strands_new_player(
     responses: aiointercept,
     client: NYTGamesClient,
+    fixture: str,
 ) -> None:
     """Test retrieving strands stats for a player who has never played."""
     responses.get(
         f"{MOCK_URL}/svc/games/state/strands/latests?puzzle_ids=0",
         status=200,
-        body=load_fixture("strands_new_player.json"),
+        body=load_fixture(fixture),
     )
     assert await client.get_strands() is None
     responses.assert_called_once_with(
