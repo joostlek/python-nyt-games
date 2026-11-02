@@ -59,6 +59,21 @@ class CrosswordRoot[T](DataClassORJSONMixin):
 
 
 @dataclass
+class FriendsRoot[T](DataClassORJSONMixin):
+    data: Data[T]
+
+
+@dataclass
+class Data[T](DataClassORJSONMixin):
+    user: User[T]
+
+
+@dataclass
+class User[T](DataClassORJSONMixin):
+    friends: T
+
+
+@dataclass
 class StatsByDay(DataClassORJSONMixin):
     """StatsByDay model."""
 
@@ -185,6 +200,22 @@ class SpellingBeeRanks(DataClassORJSONMixin):
     solid: int = field(metadata=field_options(alias="Solid"), default=0)
 
 
+@dataclass
+class FriendStats(DataClassORJSONMixin):
+    edges: list[Friend]
+
+
+@dataclass
+class Friend(DataClassORJSONMixin):
+    regiId: int
+    gameScores: dict[str, dict[str, int | bool | str] | None]
+
+    @classmethod
+    def __pre_deserialize__(cls, d: dict[str, dict[str, Any]]) -> dict[str, Any]:
+        """Pre deserialization hook."""
+        return d["node"]
+
+
 class WordleStats(Root[LatestDataStats]):
     """WordleStats model."""
 
@@ -195,6 +226,26 @@ class ConnectionsStats(Root[Connections]):
 
 class CrosswordStatsInfo(CrosswordRoot[CrosswordStatsAndStreaks]):
     """CrosswordStats model."""
+
+
+class ConnectionsFriendsStats(FriendsRoot[FriendStats]):
+    """ConnectionsFriendsStats model."""
+
+
+class WordleFriendsStats(FriendsRoot[FriendStats]):
+    """WordleFriendsStats model."""
+
+
+class BeeFriendsStats(FriendsRoot[FriendStats]):
+    """WordleFriendsStats model."""
+
+
+class MiniFriendsStats(FriendsRoot[FriendStats]):
+    """WordleFriendsStats model."""
+
+
+class MidiFriendsStats(FriendsRoot[FriendStats]):
+    """WordleFriendsStats model."""
 
 
 @dataclass
